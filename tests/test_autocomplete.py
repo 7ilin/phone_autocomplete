@@ -27,3 +27,27 @@ class TestAutocomplete(TestCase):
         res = len(phone_autocomplete('380', self.DB_NAME))
         self.assertEqual(expected, res)
 
+    def test_operator_63(self):
+        expected = ['380633456789']
+        res = phone_autocomplete('38063', self.DB_NAME)
+        self.assertEqual(expected, res)
+
+    def test_len_number(self):
+        expected = []
+        res = phone_autocomplete('3809712345671', self.DB_NAME)
+        self.assertEqual(expected, res)
+
+    def test_string(self):
+        expected = []
+        res = phone_autocomplete('38097samsung', self.DB_NAME)
+        self.assertEqual(expected, res)
+
+    def test_symbol(self):
+        expected = []
+        res = phone_autocomplete('38O97', self.DB_NAME)
+        self.assertEqual(expected, res)
+
+    def test_country_code(self):
+        expected = []
+        res = phone_autocomplete('20', self.DB_NAME)
+        self.assertEqual(expected, res)

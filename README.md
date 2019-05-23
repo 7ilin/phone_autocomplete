@@ -12,6 +12,7 @@ phone_autocomplete
 После установки виртуальной среды в консоли выполнить команду:
 
 $ make install
+
 $ make install_db
 
 
